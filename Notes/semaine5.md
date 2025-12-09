@@ -2,7 +2,7 @@
 
 ## Bibliographie
 
-![](resources/semaine8_gof.png)
+
 
 ## Intro aux Patrons de Conception
 
@@ -13,8 +13,6 @@ Les exemples de cette semaine sont en Java plutôt qu'en C#, mais les concepts r
 Les notes de cours sont basées en partie sur des présentations créées par Sébastien Mosser, professeur à l'UQAM.
 
 ## Section 1 : La danse des canards
-
-![](resources/semaine8_canard.png)
 
 Une des choses les plus débatues dans le monde des langages de programmation est est la notion de type statique _versus_ typage dynamique. 
 
@@ -48,15 +46,11 @@ On peut s'imaginer qu'il y aurait beaucoup plus de sous-types de ``Canard`` ici,
 
 Nos canards savent cancaner, nager et s'afficher. Chaque canard s'affiche différemment mais partage le comportement des autres méthodes.
 
-![](resources/semaine8_duck_fly.png)
-
 On veut rajouter une méthode pour que nos canards puissent voler. Étant donné que tous nos canards héritent de la classe ``Canard``, c'est plutôt simple :
 
 ![](resources/semaine8_canard_class2.png)
 
 Et voilà, on ajoute la méthode à la classe ``Canard``.
-
-![](resources/semaine8_rubber_duck.png)
 
 Si on veut ajouter un nouveau type de canard, il suffit donc d'hériter de la classe ``Canard`` déjà en place.
 
@@ -65,8 +59,6 @@ Oh mais attention, les canards en plastique ne volent pas!
 ![](resources/semaine8_canard_class3.png)
 
 Donc on suppresse la capacité de voler en redéfinissant la méthode. On donne redéfini aussi la méthode ``cancaner`` pour donner un son plus approprié à notre canard en plastique.
-
-![](resources/semaine8_leurre.png)
 
 Un leurre est un canard qui ne vole pas et ne cri pas. Ajoutons ça à notre _design_...
 
@@ -77,8 +69,6 @@ Est-ce que tout ça est raisonnable? On fait usage des piliers de l'orienté-obj
 Notre classe ``Canard`` stipule que tous les canards savent ``voler``, ``nager`` et ``cancaner``. Cependant, le ``CanardEnPlastique`` est un canard qui ne sait pas voler et le ``Leurre`` est un canard qui ne sait ni voler ni cancaner.
 
 Ce que nous sommes en train de faire, c'est d'augmenter l'entropie de notre _design_ à chaque évolution!
-
-![](resources/semaine8_entropy.png)
 
 Notre solution ici est en train de devenir notre problème! 
 
@@ -128,16 +118,12 @@ Mais... est-ce qu'on a pas juste déplacé le problème?
 
 On ne peut plus appeler les méthodes ``voler`` ou ``cancaner`` sur ``Canard`` maintenant. Si on voulait le faire, il faudrait d'abord vérifier que l'instance particulière qu'on a supporte l'interface contenant la méthode que l'on veut, transformant notre langage typé statique en langage typé dynamique manqué!
 
-![](resources/semaine8_deadpool.png)
-
 #### Identifier ce qui varie
 
 > _Identify the aspects of your application that vary and separate them from what stays the same.  
 > -- _Design Principle_
 
 Reprenons le problème du début : on veut isoler les différents comportements variables de notre modèle de façon à avoir une structure de base stable, complète et variable.
-
-![](resources/semaine8_waitwhat.png)
 
 Notre problème en fait est que nous abusons présentement du mécanisme d'héritage. Il est vrai que ``Colvert`` est un ``AnimalVolant`` et un ``Canard``, mais ce n'est pas la seule façon de voir les choses.
 
@@ -152,11 +138,7 @@ Cela ne signifie pas de ne jamais utiliser l'héritage et de toujours tenter de 
 
 Ceci dit, pour notre problème actuel, l'héritage ne fonctionne manifestement pas. Allons voir ce qu'on peut faire avec de la composition.
 
-![](resources/semaine8_composition1.png)
-
 L'idée est qu'au lieu qu'un ``Canard`` soit un ``AnimalVolant`` et un truc ``Cancanant``, on réorganise nos objets pour qu'un ``Canard`` soit un objet qui possède un _comportement de vol_ et un _comportement de cri_.
-
-![](resources/semaine8_composition2.png)
 
 ![](resources/semaine8_composition_class.png)
 
