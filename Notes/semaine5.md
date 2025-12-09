@@ -177,8 +177,6 @@ Ce concept est beaucoup plus flexible que la version par héritage présentée p
 
 Vous venez de voir l'implémentation du patron GoF _Stratégie_.
 
-![](resources/semaine8_gof_strategy.png)
-
 Ce patron de conception offre une façon s'assigner des comportements à des objets de façon dynamique et d'encapsuler ces comportements de façon à ce que votre conception reste compréhensible et cohérente.
 
 Voici le skelette de base du patron :
@@ -194,8 +192,6 @@ Voici le skelette de base du patron :
 Maintenant que nous avons vu un exemple de patron de conception en contexte, il est temps de nous attarder sur les définitions et descriptions de ce qu'est un patron de conception GoF.
 
 La _Gang of Four_ sont un groupe d'auteurs qui ont publié un livre "fondateur" pour la programmation orienté-objet nommé "_Elements of Reusable Object-Oriented Software_".
-
-![](resources/semaine8_gof.png)
 
 Le livre défini les patrons de conceptions comme étant des solutions élégantes à des problèmes récurrents en développement de logiciel. L'idée est de standardiser certains concepts de modélisation pour permettre aux concepteurs de communiquer ces concepts et faciliter la communication et maintenance des logiciels.
 
